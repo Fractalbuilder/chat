@@ -19,7 +19,6 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         fetch(localIp + '/register-user', {
-            //credentials: 'include',
             method: 'POST',
             body: JSON.stringify({
                 username: user.username,

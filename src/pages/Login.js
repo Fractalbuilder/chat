@@ -19,7 +19,6 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         fetch(localIp + '/login', {
-            //credentials: 'include',
             method: 'POST',
             body: JSON.stringify({
                 username: user.username,
