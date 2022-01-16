@@ -29,6 +29,9 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 if(data.message == "User logged in") {
+                    console.log("A")
+                    console.log(document.cookie)
+                    console.log("B")
                     setAuth({
                         authenticated: true,
                         userId: getCookie('userId'),
