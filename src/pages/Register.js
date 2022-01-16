@@ -6,7 +6,7 @@ const Register = () => {
     //const localIp = 'http://127.0.0.1:8000';
     const localIp = "https://fb-chat-backend.herokuapp.com";
     const defaultUser = { username: '', password: '' };
-    const [auth, setAuth] = useContext(AuthContext);
+    const [auth, setAuth, getCookie] = useContext(AuthContext);
     const [user, setUser] = useState(defaultUser);
 
     const navigate = useNavigate();
@@ -19,6 +19,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         fetch(localIp + '/register-user', {
+            credentials: 'include',
             method: 'POST',
             body: JSON.stringify({
                 username: user.username,
@@ -30,8 +31,8 @@ const Register = () => {
                 if(data.message == "User added") {
                     setAuth({
                         authenticated: true,
-                        userId: data.userId,
-                        username: data.username
+                        userId: getCookie('userId'),
+                        username: getCookie('username')
                     });
                     return navigate('/chat')
                     

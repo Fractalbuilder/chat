@@ -3,8 +3,8 @@ import { AuthContext } from '../components/Context';
 import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const localIp = 'http://127.0.0.1:8000';
-    //const localIp = "https://fb-chat-backend.herokuapp.com";
+    //const localIp = 'http://127.0.0.1:8000';
+    const localIp = "https://fb-chat-backend.herokuapp.com";
     const defaultUser = { username: '', password: '' };
     const [auth, setAuth, getCookie] = useContext(AuthContext);
     const [user, setUser] = useState(defaultUser);
@@ -29,13 +29,12 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 if(data.message == "User logged in") {
-                    console.log("kc")
                     setAuth({
                         authenticated: true,
                         userId: getCookie('userId'),
                         username: getCookie('username')
                     });
-                    console.log("kd")
+                    
                     return navigate('/chat');
                 }
                             

@@ -75,7 +75,7 @@ const Chat = () => {
 
   return (
     <center>
-      <div className="col-12 col-sm-4">
+      <div className="col-12 col-sm-8 col-xl-4">
         <div className="form-row">
           <div className="col-12">
             <center><h1>Chat</h1></center>

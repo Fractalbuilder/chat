@@ -44,12 +44,9 @@ export const ContextProvider = (props) => {
                 userId: userId,
                 username: getCookie('username')
             });
-            console.log("ka");
         }
         
     }, [])
-    
-    console.log("kb");
 
     return (
         <AuthContext.Provider value={[auth, setAuth, getCookie]}>
