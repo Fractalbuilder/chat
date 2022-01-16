@@ -19,7 +19,7 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         fetch(localIp + '/register-user', {
-            credentials: 'include',
+            //credentials: 'include',
             method: 'POST',
             body: JSON.stringify({
                 username: user.username,
@@ -29,15 +29,16 @@ const Register = () => {
             .then(response => response.json())
             .then(data => {
                 if(data.message == "User added") {
+                    document.cookie = `userId=${data.userId}`;
+                    document.cookie = `username=${data.username}`;
+
                     setAuth({
                         authenticated: true,
-                        userId: getCookie('userId'),
-                        username: getCookie('username')
+                        userId: data.userId,
+                        username: data.username
                     });
+
                     return navigate('/chat')
-                    
-                } else {
-                    console.log("A")
                 }
                             
                 setUser(defaultUser);
