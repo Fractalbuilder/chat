@@ -29,7 +29,8 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 if(data.message == "User logged in") {
-                    document.cookie = `userId=${data.userId}; username=${data.username}`;
+                    document.cookie = `userId=${data.userId}`;
+                    document.cookie = `username=${data.username}`;
 
                     setAuth({
                         authenticated: true,
