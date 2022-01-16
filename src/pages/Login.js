@@ -29,13 +29,12 @@ const Login = () => {
             .then(response => response.json())
             .then(data => {
                 if(data.message == "User logged in") {
-                    console.log("A")
-                    console.log(document.cookie)
-                    console.log("B")
+                    document.cookie = `userId=${data.userId}; username=${data.username}`;
+
                     setAuth({
                         authenticated: true,
-                        userId: getCookie('userId'),
-                        username: getCookie('username')
+                        userId: data.userId,
+                        username: data.username
                     });
                     
                     return navigate('/chat');
