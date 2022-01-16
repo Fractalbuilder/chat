@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     //const localIp = 'http://127.0.0.1:8000';
-    const localIp = "https://fb-chat-backend.herokuapp.com";
+    const localIp = "http://fb-chat-backend.herokuapp.com";
     const defaultUser = { username: '', password: '' };
     const [auth, setAuth, getCookie] = useContext(AuthContext);
     const [user, setUser] = useState(defaultUser);

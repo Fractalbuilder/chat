@@ -3,7 +3,7 @@ import { AuthContext } from '../components/Context';
 
 const Chat = () => {
   //const localIp = "http://127.0.0.1:8000";
-  const localIp = "https://fb-chat-backend.herokuapp.com";
+  const localIp = "http://fb-chat-backend.herokuapp.com";
   var eventSource = undefined;
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
